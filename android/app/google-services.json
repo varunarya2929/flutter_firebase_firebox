@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "839575619818",
+    "firebase_url": "https://practice-c7f2a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "practice-c7f2a",
+    "storage_bucket": "practice-c7f2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839575619818:android:4deaea4d1a689e642caf93",
+        "android_client_info": {
+          "package_name": "com.me.firebaseproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839575619818-g0cqcqqskfbrf8o0hiss51p4monhi4vu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9MSppIPL5WIqOmn-vKHgHZ2rOvK5SuqI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839575619818-g0cqcqqskfbrf8o0hiss51p4monhi4vu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
