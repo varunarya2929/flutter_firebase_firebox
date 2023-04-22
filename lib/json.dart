@@ -22,42 +22,44 @@ class _JsonscreenState extends State<Jsonscreen> {
         title: Text("JSON"),
         centerTitle: true,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextField(
-            controller: first,
-            keyboardType: TextInputType.name,
-          ),
-          TextButton(
-              onPressed: () {
-                firebaseRD.writeData("$first");
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(Icons.save_alt),
-                  Text(" Press to save the Data")
-                ],
-              )),
-          StreamBuilder(
-              stream: _userDR.onValue,
-              builder: ((context, snapshot) {
-                if (snapshot.hasData) {
-                  Map? data = snapshot.data?.snapshot.value as Map?;
-                  List items = [];
-                  data?.forEach(
-                      (index, data) => items.add({"key": index, ...data}));
-                  return ListView.builder(
-                      itemCount: items.length,
-                      shrinkWrap: true,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Text(items[index]["name"]);
-                      });
-                }
-                return const CircleAvatar();
-              }))
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              controller: first,
+              keyboardType: TextInputType.name,
+            ),
+            TextButton(
+                onPressed: () {
+                  firebaseRD.writeData(first.text);
+                },
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.save_alt),
+                    Text(" Press to save the Data")
+                  ],
+                )),
+            StreamBuilder(
+                stream: _userDR.onValue,
+                builder: ((context, snapshot) {
+                  if (snapshot.hasData) {
+                    Map? data = snapshot.data?.snapshot.value as Map?;
+                    List items = [];
+                    data?.forEach(
+                        (index, data) => items.add({"key": index, ...data}));
+                    return ListView.builder(
+                        itemCount: items.length,
+                        shrinkWrap: true,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Text(items[index]["name"]);
+                        });
+                  }
+                  return const CircleAvatar();
+                }))
+          ],
+        ),
       ),
     );
   }
